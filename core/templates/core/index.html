@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- internals css -->
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/jpeg" href="{% static 'core/img/favicon/logo.jpeg' %}">
+
+    <title>Estilo & Encanto Bisuteria Lizeth!</title>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light  fixed-top">
+        <a class="navbar-brand" href="#">E&E Bisuteria Lizeth</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        
+          <div class="collapse navbar-collapse navbar-flex" id="navbarSupportedContent" >
+            <div>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#nosotros">Nosotros</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Diseños
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#mujeres">Mujeres</a>
+                  <a class="dropdown-item" href="#hombres">Hombres</a>              
+                  <a class="dropdown-item" href="#parejas">Parejas</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.facebook.com/estiloencanto.bl/"><img src="{% static 'core/img/redes/facebook32.png' %}" alt="facebook logo"></a>
+                
+              </li>
+            
+            </ul>   
+          </div>     
+          </div>
+    </nav>
+
+    <!-- carrousel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      
+      <div class="carousel-inner img-fluid carrousel-customized">
+        <div class="carousel-item active">
+          <img src="{% static 'core/img/carousel/1.png' %}" class="d-block w-100" alt="...">
+          <!-- <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div> -->
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'core/img/carousel/2.png' %}" class="d-block w-100" alt="...">
+          <!-- <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div> -->
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'core/img/carousel/3.png' %}" class="d-block w-100" alt="...">
+          <!-- <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div> -->
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- cards -->
+
+    <!-- diseños para mujeres -->
+     <div id="mujeres"  style="height: 40px;"></div> 
+    <h5 class="text-center mt-3 mb-3 text-secondary" id="mujeres" >Diseños para mujeres</h5>
+    <div class="container">
+        <div class="row relleno">
+            {% for woman in women%}    
+              <div class="col-sm-4 mt-2 mb-2">
+                  <div class="card">
+                    <img src="{{ woman.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{woman.title}}</h5>
+                      <p class="card-text">{{woman.content}}</p>
+                        {% if woman.link %}
+                          <a target="_blank" href="{{woman.link}}" class="btn btn-primary">Ver mas</a>
+                        {% endif %}
+                    </div>      
+                  </div>
+              </div>
+              {% endfor %}                    
+        </div>
+      </div>
+   
+
+    <!-- cards hombres -->
+   <div id="hombres"  style="height: 40px;"></div> 
+    <h5 class="text-center mt-3 mb-3 text-secondary" id="hombres" >Diseños para hombres</h5>
+    <div class="container">
+        <div class="row relleno">
+            {% for man in men%}    
+              <div class="col-sm-4 mt-2 mb-2">
+                  <div class="card">
+                    <img src="{{ man.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{man.title}}</h5>
+                      <p class="card-text">{{man.content}}</p>
+                        {% if man.link %}
+                          <a target="_blank" href="{{man.link}}" class="btn btn-primary">Ver mas</a>
+                        {% endif %}
+                    </div>      
+                  </div>
+              </div>
+              {% endfor %}                    
+        </div>
+      </div>
+
+       <!-- cards parejas-->
+   
+      <div id="parejas"  style="height: 40px;"></div> 
+    <h5 class="text-center mt-3 mb-3 text-secondary" id="parejas" >Diseños para parejas</h5>
+    <div class="container">
+        <div class="row relleno">
+            {% for couple in couples %}    
+              <div class="col-sm-4 mt-2 mb-2">
+                  <div class="card">
+                    <img src="{{ couple.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{couple.title}}</h5>
+                      <p class="card-text">{{couple.content}}</p>
+                        {% if couple.link %}
+                          <a target="_blank" href="{{couple.link}}" class="btn btn-primary">Ver mas</a>
+                        {% endif %}
+                    </div>      
+                  </div>
+              </div>
+              {% endfor %}                    
+        </div>
+      </div>
+
+  <!--  end cards -->
+
+<!-- Nosotros -->
+<div class="jumbotron mt-3 mb-2" id="nosotros">
+    {% for about in abouts %}    
+      <h2>{{about.title}}</h2>
+      <p>
+        {{about.content | capfirst | linebreaks}}
+                
+      </p>
+      <a class="btn btn-outline-info" target="_blank" href="{{about.link}}">Conoce mas sobre nosotros</a>
+    {% endfor %}
+    </div>
+
+    <!-- footer -->
+   <div class="footer container-fluid bg-dark text-white ">
+   
+    <div>
+      Estilo & Encanto Bisuteria Lizeth! ‧ Todos los derechos reservados ® 2021
+    </div>
+
+     <ul id="facebook-redes">
+      <li >
+          <a href="https://www.facebook.com/estiloencanto.bl/"><img src="{% static 'core/img/redes/facebook32.png' %}" alt="facebook logo"></a>      
+      </li>
+    </ul>
+     
+     
+   </div>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+  </body>
+</html>

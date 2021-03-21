@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+.navbar-flex{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.carrousel-customized img{
+    max-width: 100%;
+    height: 550px;
+    opacity: 0.9;
+    
+} 
+
+
+
+.footer{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#facebook-redes{
+    list-style: none;
+}
+
+@media screen and (min-width: 768px){
+    .relleno{
+        padding-left: 90px; 
+        padding-right: 90px;
+    }
+}
